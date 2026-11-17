@@ -1,6 +1,6 @@
 # OTFT-SR
 
-Experimentos de regressão simbólica para curvas de transferência p-OTFT usando o pipeline [LLM-SR](https://github.com/). O repositório reúne adaptadores de dados, especificações, notebooks, resultados, logs e relatórios de auditoria para uma curva experimental da Org1 e conjuntos sintéticos das Org1–Org4.
+Experimentos de regressão simbólica para curvas de transferência p-OTFT usando o pipeline LLM-SR. O repositório reúne adaptadores de dados, especificações, notebooks, resultados, logs e relatórios de auditoria para uma curva experimental da Org1 e conjuntos sintéticos das Org1–Org4.
 
 ## Escopo e interpretação
 
@@ -19,7 +19,7 @@ Consulte [`reports/AUDITORIA_CIENTIFICA_PIPELINE_OTFT.md`](reports/AUDITORIA_CIE
 - `specifications/`: especificações de busca compatíveis com LLM-SR.
 - `notebooks/`: notebooks de experimento e análise.
 - `results/`, `logs/` e `audit/`: resultados persistidos, logs e verificações de auditoria.
-- `reports/`: relatório científico, matrizes de achados e plano de correção.
+- `reports/` e `relatorios/`: relatórios científicos, matrizes de achados e plano de correção.
 
 ## Dependências externas
 
