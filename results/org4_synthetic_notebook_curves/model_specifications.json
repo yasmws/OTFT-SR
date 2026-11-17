@@ -1,0 +1,257 @@
+{
+  "execucao": {
+    "run_name": "org4_synthetic_notebook",
+    "dataset_mode": "synthetic",
+    "feature_columns": [
+      "VGS_abs_V",
+      "VDS_abs_V"
+    ],
+    "target_column": "log10_ID_abs_A",
+    "train_rows": 1200,
+    "split_rows": {
+      "treino": 1200,
+      "test_id": 750,
+      "teste_extrapolacao": 1800
+    },
+    "python_version": "3.11.7"
+  },
+  "equacao_candidata_LLM_SR": {
+    "status": "executado",
+    "score_logado": -0.4481865774790661,
+    "fonte": "def equation(gate_voltage_abs: np.ndarray, drain_voltage_abs: np.ndarray, parameters: np.ndarray) -> np.ndarray:\n    \"\"\"Modelo empírico bivariado para log10(|ID|/A).\"\"\"\n    \"\"\"Further improved version of the function that includes a cubic term for drain_voltage_abs and a quadratic term for gate_voltage_abs.\"\"\"\n    return (\n        parameters[0]\n        + parameters[1] * gate_voltage_abs\n        + parameters[2] * gate_voltage_abs**2\n        + parameters[3] * drain_voltage_abs\n        + parameters[4] * drain_voltage_abs**2\n        + parameters[5] * drain_voltage_abs**3\n    )",
+    "parametros_reajustados_treino": [
+      -10.957359254234548,
+      0.23979854434501452,
+      -0.0022430926121507584,
+      0.10094995215243902,
+      -0.002368182139321646,
+      1.6860532151095563e-05
+    ]
+  },
+  "configuracao_comum": {
+    "seed": 7,
+    "run_classic_baselines": true,
+    "PySR": {
+      "niterations": 50,
+      "populations": 6,
+      "population_size": 30,
+      "maxsize": 18,
+      "binary_operators": [
+        "+",
+        "-",
+        "*",
+        "/"
+      ],
+      "deterministic": true,
+      "parallelism": "serial",
+      "random_state": 7
+    },
+    "gplearn": {
+      "generations": 20,
+      "population_size": 300,
+      "function_set": [
+        "add",
+        "sub",
+        "mul",
+        "div"
+      ],
+      "metric": "mse",
+      "parsimony_coefficient": 0.001,
+      "const_range": [
+        -2.0,
+        2.0
+      ],
+      "random_state": 7,
+      "n_jobs": 1
+    }
+  },
+  "metodos": {
+    "PySR": {
+      "status": "executado",
+      "equacao_selecionada": "-244.97844 / (VGS_abs_V + 21.728468)",
+      "parametros": {
+        "adaptive_parsimony_scaling": 1040.0,
+        "alpha": 3.17,
+        "annealing": true,
+        "autodiff_backend": null,
+        "batch_size": null,
+        "batching": "auto",
+        "binary_operators": [
+          "+",
+          "-",
+          "*",
+          "/"
+        ],
+        "bumper": false,
+        "cluster_manager": null,
+        "complexity_mapping": null,
+        "complexity_of_constants": null,
+        "complexity_of_operators": null,
+        "complexity_of_variables": null,
+        "constraints": null,
+        "crossover_probability": 0.2,
+        "default_mutations": null,
+        "default_plugins": null,
+        "delete_tempfiles": true,
+        "denoise": false,
+        "deterministic": true,
+        "dimensional_constraint_penalty": null,
+        "dimensionless_constants_only": false,
+        "early_stop_condition": null,
+        "elementwise_loss": null,
+        "expression_spec": null,
+        "extra_jax_mappings": null,
+        "extra_sympy_mappings": null,
+        "extra_torch_mappings": null,
+        "fast_cycle": false,
+        "fraction_replaced": 0.00036,
+        "fraction_replaced_guesses": 0.001,
+        "fraction_replaced_hof": 0.0614,
+        "guesses": null,
+        "heap_size_hint_in_bytes": null,
+        "hof_migration": true,
+        "input_stream": null,
+        "logger_spec": null,
+        "loss_function": null,
+        "loss_function_expression": null,
+        "loss_scale": "log",
+        "max_evals": null,
+        "maxdepth": null,
+        "maxsize": 18,
+        "migration": true,
+        "model_selection": "best",
+        "mutations": null,
+        "ncycles_per_iteration": 380,
+        "nested_constraints": null,
+        "niterations": 50,
+        "operators": null,
+        "optimize_probability": 0.14,
+        "optimizer_algorithm": "BFGS",
+        "optimizer_f_calls_limit": null,
+        "optimizer_iterations": 8,
+        "optimizer_nrestarts": 2,
+        "output_directory": null,
+        "output_jax_format": false,
+        "output_torch_format": false,
+        "parallelism": "serial",
+        "parsimony": 0.0,
+        "perturbation_factor": 0.129,
+        "plugins": null,
+        "population_size": 30,
+        "populations": 6,
+        "precision": 32,
+        "print_precision": 5,
+        "probability_negate_constant": 0.00743,
+        "procs": null,
+        "progress": false,
+        "random_state": 7,
+        "run_id": null,
+        "select_k_features": null,
+        "should_optimize_constants": true,
+        "should_simplify": true,
+        "skip_mutation_failures": true,
+        "temp_equation_file": false,
+        "tempdir": null,
+        "timeout_in_seconds": null,
+        "topn": 12,
+        "tournament_selection_n": 15,
+        "tournament_selection_p": 0.982,
+        "tracing_file": "pysr_trace.jsonl",
+        "turbo": false,
+        "type_spec": null,
+        "unary_operators": null,
+        "update": false,
+        "update_verbosity": null,
+        "use_frequency": true,
+        "use_frequency_in_tournament": true,
+        "use_tracing": false,
+        "verbosity": 0,
+        "warm_start": false,
+        "warmup_maxsize_by": null,
+        "weight_add_node": null,
+        "weight_backsolve": null,
+        "weight_delete_node": null,
+        "weight_do_nothing": null,
+        "weight_insert_node": null,
+        "weight_mutate_constant": null,
+        "weight_mutate_feature": null,
+        "weight_mutate_operator": null,
+        "weight_optimize": null,
+        "weight_randomize": null,
+        "weight_rotate_tree": null,
+        "weight_simplify": null,
+        "weight_swap_operands": null,
+        "worker_imports": null,
+        "worker_timeout": null
+      },
+      "versao": "2.7.2"
+    },
+    "gplearn": {
+      "status": "executado",
+      "equacao_selecionada": "sub(div(add(1.639, 1.910), -1.028), div(add(add(X0, add(1.639, 1.910)), add(1.273, 1.910)), X0))",
+      "parametros": {
+        "const_range": [
+          -2.0,
+          2.0
+        ],
+        "feature_names": null,
+        "function_set": [
+          "add",
+          "sub",
+          "mul",
+          "div"
+        ],
+        "generations": 20,
+        "init_depth": [
+          2,
+          6
+        ],
+        "init_method": "half and half",
+        "low_memory": false,
+        "max_samples": 1.0,
+        "metric": "mse",
+        "n_jobs": 1,
+        "p_crossover": 0.9,
+        "p_hoist_mutation": 0.01,
+        "p_point_mutation": 0.01,
+        "p_point_replace": 0.05,
+        "p_subtree_mutation": 0.01,
+        "parsimony_coefficient": 0.001,
+        "population_size": 300,
+        "random_state": 7,
+        "stopping_criteria": 0.0,
+        "tournament_size": 20,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "versao": "0.4.2"
+    },
+    "DEAP": {
+      "status": "executado",
+      "equacao_selecionada": "sub(add(pdiv(add(1.1956517482165006, VDS_abs_V), sub(-0.7927189075851291, VDS_abs_V)), -1.3632506411707017), add(1.139975816740534, 1.0005618393218336))",
+      "parametros": {
+        "population_size": 300,
+        "generations": 20,
+        "tournament_size": 3,
+        "crossover_probability": 0.5,
+        "mutation_probability": 0.25,
+        "initialization": "genHalfAndHalf(min_=1, max_=3)",
+        "mutation_expression": "genFull(min_=0, max_=2)",
+        "maximum_tree_height": 8,
+        "primitive_operators": [
+          "add",
+          "sub",
+          "mul",
+          "protected_division"
+        ],
+        "ephemeral_constant_range": [
+          -2.0,
+          2.0
+        ],
+        "seed": 7,
+        "fitness": "MSE + 1e-5 * número_de_nós; inválidos penalizados com 1e12 + tamanho"
+      },
+      "versao": "1.4.4"
+    }
+  }
+}

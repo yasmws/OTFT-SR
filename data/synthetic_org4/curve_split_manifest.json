@@ -1,0 +1,560 @@
+{
+  "organization": "Org4",
+  "source_index": "/home/ymws/Documentos/llm-sr/Model_OTFT/synthetic_inference_runs/Org4/index_generated.json",
+  "source_curve_root": "/home/ymws/Documentos/llm-sr/Model_OTFT/synthetic_inference_runs/Org4/Org4",
+  "target": "log10(|ID| / A)",
+  "inputs": [
+    "|VGS| (V)",
+    "|VDS| (V)"
+  ],
+  "points_per_curve": 150,
+  "sampling": "Deterministic approximately uniform sampling over each complete curve.",
+  "split_rationale": {
+    "train": "Curvas output em 22/26/30/42/46/50 V e transfer em 42/46 V formam as âncoras de treino.",
+    "test_id": "Curvas output em 24/28/44/48 V e transfer em 44 V são reservadas dentro dos envelopes de treino por família.",
+    "test_ood": "Curvas output em 62–90 V e transfer em 48–50 V excedem os máximos de treino por família."
+  },
+  "curve_level_policy": {
+    "train": {
+      "transfer": [
+        "transfer-neg42V_synth_000.csv",
+        "transfer-neg46V_synth_002.csv"
+      ],
+      "output": [
+        "output-neg22V_synth_000.csv",
+        "output-neg26V_synth_002.csv",
+        "output-neg30V_synth_004.csv",
+        "output-neg42V_synth_000.csv",
+        "output-neg46V_synth_002.csv",
+        "output-neg50V_synth_004.csv"
+      ]
+    },
+    "test_id": {
+      "transfer": [
+        "transfer-neg44V_synth_001.csv"
+      ],
+      "output": [
+        "output-neg24V_synth_001.csv",
+        "output-neg28V_synth_003.csv",
+        "output-neg44V_synth_001.csv",
+        "output-neg48V_synth_003.csv"
+      ]
+    },
+    "test_ood": {
+      "transfer": [
+        "transfer-neg48V_synth_003.csv",
+        "transfer-neg50V_synth_004.csv"
+      ],
+      "output": [
+        "output-neg62V_synth_000.csv",
+        "output-neg64V_synth_001.csv",
+        "output-neg66V_synth_002.csv",
+        "output-neg68V_synth_003.csv",
+        "output-neg70V_synth_004.csv",
+        "output-neg82V_synth_000.csv",
+        "output-neg84V_synth_001.csv",
+        "output-neg86V_synth_002.csv",
+        "output-neg88V_synth_003.csv",
+        "output-neg90V_synth_004.csv"
+      ]
+    }
+  },
+  "splits": {
+    "train": {
+      "csv_file": "train.csv",
+      "n_curves": 8,
+      "n_points": 1200,
+      "curves": [
+        {
+          "curve_id": "transfer-neg42V_synth_000",
+          "family": "transfer",
+          "fixed_voltage_abs_V": 42.0,
+          "csv_file": "transfer-neg42V_synth_000.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "transfer-neg46V_synth_002",
+          "family": "transfer",
+          "fixed_voltage_abs_V": 46.0,
+          "csv_file": "transfer-neg46V_synth_002.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg22V_synth_000",
+          "family": "output",
+          "fixed_voltage_abs_V": 22.0,
+          "csv_file": "output-neg22V_synth_000.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg26V_synth_002",
+          "family": "output",
+          "fixed_voltage_abs_V": 26.0,
+          "csv_file": "output-neg26V_synth_002.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg30V_synth_004",
+          "family": "output",
+          "fixed_voltage_abs_V": 30.0,
+          "csv_file": "output-neg30V_synth_004.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg42V_synth_000",
+          "family": "output",
+          "fixed_voltage_abs_V": 42.0,
+          "csv_file": "output-neg42V_synth_000.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg46V_synth_002",
+          "family": "output",
+          "fixed_voltage_abs_V": 46.0,
+          "csv_file": "output-neg46V_synth_002.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg50V_synth_004",
+          "family": "output",
+          "fixed_voltage_abs_V": 50.0,
+          "csv_file": "output-neg50V_synth_004.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        }
+      ]
+    },
+    "test_id": {
+      "csv_file": "test_id.csv",
+      "n_curves": 5,
+      "n_points": 750,
+      "curves": [
+        {
+          "curve_id": "transfer-neg44V_synth_001",
+          "family": "transfer",
+          "fixed_voltage_abs_V": 44.0,
+          "csv_file": "transfer-neg44V_synth_001.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg24V_synth_001",
+          "family": "output",
+          "fixed_voltage_abs_V": 24.0,
+          "csv_file": "output-neg24V_synth_001.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg28V_synth_003",
+          "family": "output",
+          "fixed_voltage_abs_V": 28.0,
+          "csv_file": "output-neg28V_synth_003.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg44V_synth_001",
+          "family": "output",
+          "fixed_voltage_abs_V": 44.0,
+          "csv_file": "output-neg44V_synth_001.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg48V_synth_003",
+          "family": "output",
+          "fixed_voltage_abs_V": 48.0,
+          "csv_file": "output-neg48V_synth_003.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        }
+      ]
+    },
+    "test_ood": {
+      "csv_file": "test_ood.csv",
+      "n_curves": 12,
+      "n_points": 1800,
+      "curves": [
+        {
+          "curve_id": "transfer-neg48V_synth_003",
+          "family": "transfer",
+          "fixed_voltage_abs_V": 48.0,
+          "csv_file": "transfer-neg48V_synth_003.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "transfer-neg50V_synth_004",
+          "family": "transfer",
+          "fixed_voltage_abs_V": 50.0,
+          "csv_file": "transfer-neg50V_synth_004.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg62V_synth_000",
+          "family": "output",
+          "fixed_voltage_abs_V": 62.0,
+          "csv_file": "output-neg62V_synth_000.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg64V_synth_001",
+          "family": "output",
+          "fixed_voltage_abs_V": 64.0,
+          "csv_file": "output-neg64V_synth_001.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg66V_synth_002",
+          "family": "output",
+          "fixed_voltage_abs_V": 66.0,
+          "csv_file": "output-neg66V_synth_002.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg68V_synth_003",
+          "family": "output",
+          "fixed_voltage_abs_V": 68.0,
+          "csv_file": "output-neg68V_synth_003.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg70V_synth_004",
+          "family": "output",
+          "fixed_voltage_abs_V": 70.0,
+          "csv_file": "output-neg70V_synth_004.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg82V_synth_000",
+          "family": "output",
+          "fixed_voltage_abs_V": 82.0,
+          "csv_file": "output-neg82V_synth_000.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg84V_synth_001",
+          "family": "output",
+          "fixed_voltage_abs_V": 84.0,
+          "csv_file": "output-neg84V_synth_001.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg86V_synth_002",
+          "family": "output",
+          "fixed_voltage_abs_V": 86.0,
+          "csv_file": "output-neg86V_synth_002.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg88V_synth_003",
+          "family": "output",
+          "fixed_voltage_abs_V": 88.0,
+          "csv_file": "output-neg88V_synth_003.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        },
+        {
+          "curve_id": "output-neg90V_synth_004",
+          "family": "output",
+          "fixed_voltage_abs_V": 90.0,
+          "csv_file": "output-neg90V_synth_004.csv",
+          "n_points": 150,
+          "current_typic": "uA",
+          "current_scale_to_ampere": 1e-06,
+          "indexed_parameters": {
+            "VTHO": 10.0,
+            "DELTA": 0.0,
+            "N": 50.0,
+            "L": 2.73,
+            "LAMBDA": 4790.0,
+            "VGCRIT": 36.2,
+            "JTH": 9.69,
+            "RS": 4.18
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+"""
+Descubra uma expressão compacta para log10(|ID|/A) em função de |VGS| para um OTFT p-canal Org1, com |VDS| nominal de 50 V. Os dados cobrem uma varredura de transferência em regime de saturação aproximada. Correntes estão transformadas em escala logarítmica; VGS_abs_V está em volts. Priorize uma relação monotônica, parcimoniosa e numericamente estável. A expressão é um modelo empírico para esta curva e não deve ser interpretada como extração independente de parâmetros físicos.
+"""
+
+import numpy as np
+
+MAX_NPARAMS = 8
+
+
+@evaluate.run
+def evaluate(data: dict) -> float:
+    """Minimiza o erro quadrático médio no logaritmo decimal da corrente."""
+    inputs, outputs = data["inputs"], data["outputs"]
+    gate_voltage_abs = inputs[:, 0]
+
+    from scipy.optimize import minimize
+
+    def loss(parameters: np.ndarray) -> float:
+        prediction = equation(gate_voltage_abs, parameters)
+        if not np.all(np.isfinite(prediction)):
+            return float("inf")
+        return float(np.mean((prediction - outputs) ** 2))
+
+    result = minimize(loss, np.ones(MAX_NPARAMS), method="BFGS")
+    if not np.isfinite(result.fun):
+        return None
+    return -float(result.fun)
+
+
+@equation.evolve
+def equation(gate_voltage_abs: np.ndarray, parameters: np.ndarray) -> np.ndarray:
+    """Equação empírica para log10(|ID|/A) ao longo da curva de transferência."""
+    return parameters[0] + parameters[1] * gate_voltage_abs

@@ -1,0 +1,13 @@
+## Equação candidata LLM-SR
+def equation(gate_voltage_abs: np.ndarray, drain_voltage_abs: np.ndarray, parameters: np.ndarray) -> np.ndarray:
+    """Modelo empírico bivariado para log10(|ID|/A)."""
+    return parameters[0] + parameters[1] * gate_voltage_abs + parameters[2] * drain_voltage_abs + parameters[3] * (gate_voltage_abs ** 2) + parameters[4] * (drain_voltage_abs ** 2) + parameters[5] * (gate_voltage_abs ** 3) + parameters[6] * (drain_voltage_abs ** 3) + parameters[7] * (gate_voltage_abs ** 2) * (drain_voltage_abs) + parameters[8] * (gate_voltage_abs) * (drain_voltage_abs ** 2) + parameters[9] * (gate_voltage_abs ** 3) * (drain_voltage_abs) + parameters[10] * (gate_voltage_abs) * (drain_voltage_abs ** 3) + parameters[11] * (gate_voltage_abs ** 2) * (drain_voltage_abs ** 2)
+
+## PySR
+((-217.51668 / ((VGS_abs_V + -3.623646) + (21.322886 / VGS_abs_V))) / VGS_abs_V) - 2.781545
+
+## gplearn
+sub(div(add(1.560, div(add(1.639, 1.910), add(X0, X1))), div(sub(-0.695, X0), add(X0, add(add(1.639, 1.910), add(1.639, 1.910))))), add(1.560, div(add(add(add(1.639, 1.910), add(1.639, 1.910)), 1.910), add(X0, X1))))
+
+## DEAP
+pdiv(add(pdiv(sub(add(VGS_abs_V, 0.7586141394326367), sub(VDS_abs_V, VDS_abs_V)), 1.0666720093718949), add(add(mul(1.9327309545665932, VDS_abs_V), VDS_abs_V), VDS_abs_V)), pdiv(add(VGS_abs_V, VDS_abs_V), sub(sub(-1.7485930353834696, pdiv(-0.5344142371031029, -1.7485930353834696)), pdiv(-0.5344142371031029, -1.9166304940589733))))

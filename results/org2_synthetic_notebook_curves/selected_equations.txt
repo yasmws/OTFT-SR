@@ -1,0 +1,28 @@
+## Equação candidata LLM-SR
+def equation(gate_voltage_abs: np.ndarray, drain_voltage_abs: np.ndarray, parameters: np.ndarray) -> np.ndarray:
+    """Modelo empírico bivariado para log10(|ID|/A)."""
+    a = parameters[0]
+    b = parameters[1]
+    c = parameters[2]
+    d = parameters[3]
+    e = parameters[4]
+    f = parameters[5]  # New parameter to include a quadratic term in gate_voltage_abs
+    g = parameters[6]  # New parameter to include a quadratic term in drain_voltage_abs
+    h = parameters[7]  # New parameter to include a product term between gate_voltage_abs and drain_voltage_abs
+    i = parameters[8]  # New parameter to include a power term for gate_voltage_abs
+    j = parameters[9]  # New parameter to include a power term for drain_voltage_abs
+    k = parameters[10]  # New parameter to include a power term for their difference
+    
+    return a + b * gate_voltage_abs + c * drain_voltage_abs + d * (gate_voltage_abs - drain_voltage_abs)**2 + \
+           f * gate_voltage_abs**2 + g * drain_voltage_abs**2 + \
+           h * gate_voltage_abs * drain_voltage_abs + \
+           i * gate_voltage_abs**3 + j * drain_voltage_abs**3
+
+## PySR
+298.34015 / (-28.478762 - VGS_abs_V)
+
+## gplearn
+sub(div(div(add(div(X0, X0), add(div(X0, X0), add(1.639, 1.910))), X0), -1.028), add(div(X0, X0), add(div(X0, X0), add(1.639, 1.910))))
+
+## DEAP
+sub(add(pdiv(pdiv(-1.916688256696509, sub(VDS_abs_V, VDS_abs_V)), sub(-0.6027054644106258, 1.513969612755397)), -0.6239723920928317), add(add(add(add(1.513969612755397, pdiv(add(1.513969612755397, add(1.513969612755397, 0.3849127673075978)), VGS_abs_V)), 1.6194083829329573), 0.3849127673075978), 1.0005618393218336))

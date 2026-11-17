@@ -1,0 +1,1 @@
+{"sample_order": 16, "function": "def equation(gate_voltage_abs: np.ndarray, drain_voltage_abs: np.ndarray, parameters: np.ndarray) -> np.ndarray:\n    \"\"\"Modelo emp\u00edrico bivariado para log10(|ID|/A).\"\"\"\n    a, b, c, d, e = parameters\n    return log10((a * np.exp(b * gate_voltage_abs) * np.exp(c * drain_voltage_abs)) / parameters[4])\n\n", "score": null}

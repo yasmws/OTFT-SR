@@ -1,0 +1,14 @@
+## Equação candidata LLM-SR
+def equation(gate_voltage_abs: np.ndarray, drain_voltage_abs: np.ndarray, parameters: np.ndarray) -> np.ndarray:
+    """Modelo empírico bivariado para log10(|ID|/A)."""
+    """Compact and flexible version of the equation."""
+    return parameters[0] + parameters[1] * gate_voltage_abs + parameters[2] * drain_voltage_abs + parameters[3] * gate_voltage_abs**2 + parameters[4] * drain_voltage_abs**2 + parameters[5] * gate_voltage_abs * drain_voltage_abs / (parameters[6] * gate_voltage_abs + parameters[7] * drain_voltage_abs + parameters[8])
+
+## PySR
+((-0.23518445 / VDS_abs_V) - 11.394636) + (VGS_abs_V * ((VGS_abs_V * -0.0022062622) - -0.23518445))
+
+## gplearn
+sub(-1.508, add(div(add(add(add(div(X0, X0), add(1.639, 1.910)), 1.910), add(div(add(1.639, 1.910), add(X0, X0)), add(div(X0, X0), add(1.639, add(1.639, 1.910))))), add(X0, div(add(add(div(X0, X0), add(1.639, add(add(1.639, 1.910), 1.910))), add(div(add(1.639, 1.910), add(X0, X0)), add(div(X0, X0), add(1.639, add(1.639, 1.910))))), add(X0, div(add(1.639, 1.910), add(X0, X0)))))), add(div(add(1.639, 1.910), add(X0, div(add(1.639, 1.910), add(X0, X0)))), add(div(add(add(add(div(X0, X0), add(1.639, 1.910)), 1.910), add(div(add(1.639, 1.910), add(X0, X0)), add(div(X0, X0), add(1.639, add(1.639, 1.910))))), add(X0, div(add(div(add(add(add(div(X0, X0), add(1.639, 1.910)), 1.910), add(div(add(1.639, 1.910), add(X0, X0)), add(div(X0, X0), add(1.639, add(1.639, 1.910))))), add(X0, div(add(1.639, 1.910), add(X0, X0)))), add(1.639, 1.910)), add(X0, X0)))), add(1.639, 1.910)))))
+
+## DEAP
+add(sub(sub(-1.8391665170228362, 1.9655069123281073), add(0.3319876178416292, 1.461592392899456)), -0.5792507462276122)

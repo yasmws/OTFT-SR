@@ -1,0 +1,135 @@
+{
+  "generated_utc": "2026-11-17T02:00:17.040485+00:00",
+  "scope": "read-only checks of persisted CSV/JSON, Python source and candidate syntax; no model search rerun",
+  "tests": {
+    "passed": 10,
+    "failed": 0,
+    "errors": 0,
+    "test_count": 10,
+    "details": []
+  },
+  "synthetic_splits": {
+    "org1": {
+      "train": {
+        "n_points": 1800,
+        "n_curves": 12,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_id": {
+        "n_points": 1050,
+        "n_curves": 7,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_ood": {
+        "n_points": 900,
+        "n_curves": 6,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      }
+    },
+    "org2": {
+      "train": {
+        "n_points": 2100,
+        "n_curves": 14,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_id": {
+        "n_points": 600,
+        "n_curves": 4,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_ood": {
+        "n_points": 1050,
+        "n_curves": 7,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      }
+    },
+    "org3": {
+      "train": {
+        "n_points": 1050,
+        "n_curves": 7,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_id": {
+        "n_points": 1350,
+        "n_curves": 9,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_ood": {
+        "n_points": 600,
+        "n_curves": 4,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      }
+    },
+    "org4": {
+      "train": {
+        "n_points": 1200,
+        "n_curves": 8,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_id": {
+        "n_points": 750,
+        "n_curves": 5,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      },
+      "test_ood": {
+        "n_points": 1800,
+        "n_curves": 12,
+        "n_duplicate_rows": 0,
+        "n_duplicate_xy": 0
+      }
+    }
+  },
+  "recalculated_holdout_metrics_from_persisted_predictions": {
+    "notebook_org1_tipo_p_best_candidate_holdout.csv": {
+      "n": 11,
+      "MSE_log10": 0.016338991741067944,
+      "RMSE_log10": 0.12782406557870057,
+      "MAE_log10": 0.08929898377506157,
+      "R2": 0.10275168125411849
+    },
+    "org2_synthetic_notebook_best_candidate_holdout.csv": {
+      "n": 1050,
+      "MSE_log10": 0.0988029051062542,
+      "RMSE_log10": 0.3143292940631754,
+      "MAE_log10": 0.2522177004768373,
+      "R2": 0.8846570700914267
+    },
+    "org3_synthetic_notebook_best_candidate_holdout.csv": {
+      "n": 600,
+      "MSE_log10": 0.9134231198294066,
+      "RMSE_log10": 0.9557317195894498,
+      "MAE_log10": 0.4792491614203884,
+      "R2": 0.9069910205112178
+    },
+    "org4_synthetic_notebook_best_candidate_holdout.csv": {
+      "n": 1800,
+      "MSE_log10": 2.861001116070336,
+      "RMSE_log10": 1.6914494128026223,
+      "MAE_log10": 1.2236368630003986,
+      "R2": -0.07291403327786106
+    },
+    "synthetic_org1_notebook_best_candidate_holdout.csv": {
+      "n": 900,
+      "MSE_log10": 0.08655438607955084,
+      "RMSE_log10": 0.29420126797746954,
+      "MAE_log10": 0.2417994883610705,
+      "R2": 0.9713124746397818
+    }
+  },
+  "limitations": [
+    "No LLM server, prompts, model identifier or inference parameters were persisted for the historical runs.",
+    "No independent physical simulator or experimental validation was run.",
+    "Metric recalculation covers exported best-candidate holdout predictions; full test_id prediction arrays are absent."
+  ]
+}

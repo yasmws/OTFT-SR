@@ -1,0 +1,1 @@
+{"sample_order": 42, "function": "def equation(gate_voltage_abs: np.ndarray, drain_voltage_abs: np.ndarray, parameters: np.ndarray) -> np.ndarray:\n    \"\"\"Modelo emp\u00edrico bivariado para log10(|ID|/A).\"\"\"\n    \"\"\"Equation with additional terms for voltage product and field effect.\"\"\"\n\n", "score": null}

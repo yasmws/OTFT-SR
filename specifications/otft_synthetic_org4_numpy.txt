@@ -1,0 +1,38 @@
+"""
+Descubra uma expressão para log10(|ID|/A) em função de |VGS| e |VDS| para curvas sintéticas do OTFT p-canal Org4. As entradas são |VGS| e |VDS| em volts; o alvo é log10 da magnitude da corrente de dreno em ampères. O conjunto contém curvas de transferência e de saída, com curvas inteiras reservadas para validação intermediária e teste fora da faixa de polarização fixa do treino. Priorize uma expressão compacta, numericamente estável e compatível com ambas as famílias de curva.
+"""
+
+import numpy as np
+
+MAX_NPARAMS = 12
+
+
+@evaluate.run
+def evaluate(data: dict) -> float:
+    """Minimiza MSE em log10(|ID|/A) com coeficientes ajustáveis."""
+    inputs, outputs = data["inputs"], data["outputs"]
+    gate_voltage_abs = inputs[:, 0]
+    drain_voltage_abs = inputs[:, 1]
+
+    from scipy.optimize import minimize
+
+    def loss(parameters: np.ndarray) -> float:
+        prediction = equation(gate_voltage_abs, drain_voltage_abs, parameters)
+        if not np.all(np.isfinite(prediction)):
+            return float("inf")
+        return float(np.mean((prediction - outputs) ** 2))
+
+    result = minimize(loss, np.ones(MAX_NPARAMS), method="BFGS")
+    if not np.isfinite(result.fun):
+        return None
+    return -float(result.fun)
+
+
+@equation.evolve
+def equation(
+    gate_voltage_abs: np.ndarray,
+    drain_voltage_abs: np.ndarray,
+    parameters: np.ndarray,
+) -> np.ndarray:
+    """Modelo empírico bivariado para log10(|ID|/A)."""
+    return parameters[0] + parameters[1] * gate_voltage_abs + parameters[2] * drain_voltage_abs
