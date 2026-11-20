@@ -27,7 +27,6 @@ def evaluate(data: dict) -> float:
         return None
     return -float(result.fun)
 
-
 @equation.evolve
 def equation(
     gate_voltage_abs: np.ndarray,
@@ -36,3 +35,4 @@ def equation(
 ) -> np.ndarray:
     """Modelo empírico bivariado para log10(|ID|/A)."""
     return parameters[0] + parameters[1] * gate_voltage_abs + parameters[2] * drain_voltage_abs
+

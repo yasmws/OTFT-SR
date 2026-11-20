@@ -1,0 +1,35 @@
+{
+  "problem_name": "oscillator1",
+  "query": "all:nonlinear AND all:oscillator AND all:damping",
+  "cache_path": "/home/ymws/.cache/llmsr/rag/oscillator1.json",
+  "passages": [
+    {
+      "paper_id": "2404.17599",
+      "title": "Fractional damping enhances chaos in the nonlinear Helmholtz oscillator",
+      "url": "https://arxiv.org/abs/2404.17599",
+      "text": "urrent research and real applications of fractional calculus in science and engineering can be found in Refs. REVIEW:APLICATIONS ; VAZQUEZ:2020 ; Yang ; Ouannas ; Wang ; antegana . In our present work, due to the fact that the dissipation plays an important role in the evolution of the systems, we focus our interest in analyzing the effect of a fractional damping on a nonlinear oscillator dynamics. In fact, we modify the equation of motion of the Helmholtz oscillator, which is being used in many physical problems, in order to introduce a fractional differential operator in the damping term instead of the classical derivatives. Then, we focus our attention on the effect of the fractional operator on the dynamics of the system by studying the behavior of the trajectories, this means, if the asymptotic solutions fall inside or outside the potential well defined by the Helmholtz potential.",
+      "score": 0.09799277999005568
+    },
+    {
+      "paper_id": "0510063",
+      "title": "Stability of a nonlinear oscillator with random damping",
+      "url": "https://arxiv.org/abs/0510063",
+      "text": "A noisy damping parameter in the equation of motion of a nonlinear oscillator renders the fixed point of the system unstable when the amplitude of the noise is sufficiently large. However, the stability diagram of the system can not be predicted from the analysis of the moments of the linearized equation. In the case of a white noise, an exact formula for the Lyapunov exponent of the system is derived. We then calculate the critical damping for which the {\\em nonlinear} system becomes unstable. We also characterize the intermittent structure of the bifurcated state above threshold and address the effect of temporal correlations of the noise by considering an Ornstein-Uhlenbeck noise.",
+      "score": 0.08703150221956697
+    },
+    {
+      "paper_id": "0911.0833",
+      "title": "Nonlinear damping in a micromechanical oscillator",
+      "url": "https://arxiv.org/abs/0911.0833",
+      "text": "low response times near the bifurcation points. Straightforward evaluation of these requirements by simple measurements can facilitate accurate data acquisition and interpretation. In the present paper we study damping in a micromechanical oscillator operating in the nonlinear regime excited by an external periodic force at frequencies close to the mechanical fundamental mode. We consider a Duffing oscillator nonlinearly coupled to a thermal bath. This coupling results in a nonlinear damping force proportional to the velocity multiplied by the displacement squared. As will be shown below, this approach is equivalent to the case where the damping nonlinearity is proportional to the velocity cubed Lifshitz&Cross_03 . In conjunction with a linear dissipation term, it has also been shown to describe an effective quadratic drag term Bikdash_et_al_94 .",
+      "score": 0.07910463390067787
+    },
+    {
+      "paper_id": "2005.06187",
+      "title": "Periodically Forced Nonlinear Oscillators With Hysteretic Damping",
+      "url": "https://arxiv.org/abs/2005.06187",
+      "text": "nificant, as we shall demonstrate, in the highly realistic case that such oscillators operate in the presence of weakly nonlinear stiffness terms. In a seminal paper [ 1 ] R. E. D. Bishop introduced a complex hysteretic damping term for linear springs, as an improvement over the usual viscous damping models in which dissipation is simply proportional to the velocity of the oscillator x ˙ ​ ( t ) \\dot{x}(t) . In Bishop’s hysteretic damping model the total (linear) force is not in phase with x ⁡ ( t ) x(t) and this accounts for dissipative effects due to hysteresis losses in the material of the spring. Thus both stiffness and damping are governed by properties of the material and are included in a single linear complex term in the equation of motion.",
+      "score": 0.07580093714543248
+    }
+  ]
+}
